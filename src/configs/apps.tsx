@@ -1,6 +1,7 @@
 import { appBarHeight } from "~/utils";
 import PhotosApp from "~/components/PhotosApp/PhotosApp";
 import photosIcon from "~/components/PhotosApp/photosIcon.avif";
+import Weather from "~/components/apps/Weather";
 import type { AppsData } from "~/types";
 
 const apps: AppsData[] = [
@@ -32,6 +33,26 @@ const apps: AppsData[] = [
     content: <Typora />
   },
   {
+    id: "weather",
+    title: "Weather",
+    desktop: true,
+    width: 600,
+    height: 500,
+    x: 20,
+    y: -30,
+    img: "photos/weather.webp",
+    content: <Weather />
+  },
+  {
+    id: "photos",
+    title: "Photos",
+    desktop: true,
+    width: 900,
+    height: 600,
+    img: photosIcon,
+    content: <PhotosApp />
+  },
+  {
     id: "safari",
     title: "Safari",
     desktop: true,
@@ -52,15 +73,6 @@ const apps: AppsData[] = [
     y: -30,
     img: "img/icons/vscode.png",
     content: <VSCode />
-  },
-  {
-    id: "photos",
-    title: "Photos",
-    desktop: true,
-    width: 900,
-    height: 600,
-    img: photosIcon,
-    content: <PhotosApp />
   },
   {
     id: "facetime",

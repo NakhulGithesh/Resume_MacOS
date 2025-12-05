@@ -25,6 +25,7 @@ declare global {
   const TopBar: typeof import('./components/menus/TopBar')['default']
   const Typora: typeof import('./components/apps/Typora')['default']
   const VSCode: typeof import('./components/apps/VSCode')['default']
+  const Weather: typeof import('./components/apps/Weather')['default']
   const WifiMenu: typeof import('./components/menus/WifiMenu')['default']
   const Window: typeof import('./components/Window')['default']
   const albums: typeof import('./components/PhotosApp/galleryData')['albums']
