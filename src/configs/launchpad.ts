@@ -2,64 +2,52 @@ import type { LaunchpadData } from "~/types";
 
 const launchpadApps: LaunchpadData[] = [
   {
-    id: "flint",
-    title: "Flint",
-    img: "img/icons/launchpad/flint.png",
-    link: "https://github.com/Renovamen/flint"
+    id: "github",
+    title: "GitHub",
+    img: "img/icons/launchpad/Github.png",
+    link: "https://github.com/NakhulGithesh"
   },
   {
-    id: "oh-my-cv",
-    title: "Oh, My CV!",
-    img: "https://ohmycv.app/pwa-512x512.png",
-    link: "https://ohmycv.app"
+    id: "linkedin",
+    title: "LinkedIn",
+    img: "img/icons/launchpad/LinkedIn.png",
+    link: "https://www.linkedin.com/in/nakhulgithesh"
   },
   {
-    id: "oh-vue-icons",
-    title: "Oh, Vue Icons!",
-    img: "img/icons/launchpad/oh-vue-icons.png",
-    link: "https://oh-vue-icons.js.org"
+    id: "gmail",
+    title: "Gmail",
+    img: "img/icons/launchpad/Gmail_2.png",
+    link: "https://gmail.com"
   },
   {
-    id: "gungnir",
-    title: "Gungnir",
-    img: "img/icons/launchpad/gungnir.png",
-    link: "https://vuepress-theme-gungnir.vercel.app/"
-  },
-  // {
-  //   id: "metallic",
-  //   title: "Metallic",
-  //   img: "img/icons/launchpad/meta.png",
-  //   link: "https://github.com/Renovamen/metallic"
-  // },
-  {
-    id: "what-if",
-    title: "My Notebook",
-    img: "img/icons/launchpad/notebook.png",
-    link: "https://note.zxh.io"
+    id: "instagram",
+    title: "Instagram",
+    img: "img/icons/launchpad/Instagram2.png",
+    link: "https://instagram.com/nakhulgithesh"
   },
   {
-    id: "cube",
-    title: "Cube Solver",
-    img: "img/icons/launchpad/cube.png",
-    link: "https://cube.zxh.io/"
+    id: "safari",
+    title: "Safari",
+    img: "img/icons/safari.png",
+    link: "https://www.apple.com/safari/"
   },
   {
-    id: "resume",
-    title: "Résumé",
-    img: "img/icons/launchpad/resume.png",
-    link: "https://resume.zxh.io/"
+    id: "vscode",
+    title: "VS Code",
+    img: "img/icons/vscode.png",
+    link: "https://code.visualstudio.com/"
   },
   {
-    id: "zelda",
-    title: "Webpage for Zelda",
-    img: "img/icons/launchpad/zelda.png",
-    link: "https://zelda.zxh.io/"
+    id: "facetime",
+    title: "FaceTime",
+    img: "img/icons/facetime.png",
+    link: "https://www.apple.com/mac/facetime/"
   },
   {
-    id: "fishmail",
-    title: "Fishmail",
-    img: "img/icons/launchpad/fishmail.png",
-    link: "https://fishmail.vercel.app/"
+    id: "terminal",
+    title: "Terminal",
+    img: "img/icons/terminal.png",
+    link: "https://en.wikipedia.org/wiki/Terminal_(macOS)"
   }
 ];
 
