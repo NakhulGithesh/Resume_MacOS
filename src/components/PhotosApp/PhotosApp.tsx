@@ -1,39 +1,20 @@
 import React, { useState, useEffect } from "react";
+import { useStore } from "~/stores";
 import { Photo, galleryData, albums } from "./galleryData";
 import PhotoModal from "./PhotoModal";
 import GalleryGrid from "./GalleryGrid";
 
-interface WindowInstance {
-  id: string;
-  type: string;
-  minimized: boolean;
-  maximized: boolean;
-  position: { x: number; y: number };
-  size: { width: number; height: number };
-  zIndex: number;
-}
-
 interface PhotosAppProps {
-  windowInstance: WindowInstance;
-  startDrag: (e: React.MouseEvent, id: string, action: "move" | "resize") => void;
-  onClose: () => void;
-  onMinimize: () => void;
-  onMaximize: () => void;
+  width?: number;
 }
 
-const PhotosApp: React.FC<PhotosAppProps> = ({
-  windowInstance,
-  startDrag,
-  onClose,
-  onMinimize,
-  onMaximize
-}) => {
+const PhotosApp: React.FC<PhotosAppProps> = ({ width }) => {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [isGridView, setIsGridView] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [currentView, setCurrentView] = useState("Library");
-  const [currentAlbum, setCurrentAlbum] = useState("All Photos");
+  const [currentAlbum, setCurrentAlbum] = useState("All Achievements");
 
   useEffect(() => {
     // Load photos from galleryData
@@ -84,41 +65,26 @@ const PhotosApp: React.FC<PhotosAppProps> = ({
     setCurrentAlbum(album);
   };
 
-  const openCloud = () => {
-    window.open("https://www.pexels.com/@ansxuman/", "_blank");
-  };
-
-  const filteredPhotos =
-    currentAlbum === "All Photos"
+  const getFilteredPhotos = () => {
+    if (currentView === "For You") {
+      return photos.filter((photo) => photo.isFavorite);
+    }
+    return currentAlbum === "All Achievements"
       ? photos
       : currentAlbum === "Favorites"
         ? photos.filter((photo) => photo.isFavorite)
         : photos.filter((photo) => photo.album === currentAlbum);
+  };
+
+  const filteredPhotos = getFilteredPhotos();
 
   return (
-    <div className="bg-white h-full rounded-lg flex flex-col shadow-lg overflow-hidden font-sans">
+    <div className="bg-white dark:bg-gray-900 h-full flex flex-col overflow-hidden font-sans">
       {/* Photos Header */}
-      <div
-        className="bg-gray-100 px-4 py-2 flex items-center border-b border-gray-200"
-        onMouseDown={(e) => startDrag(e, windowInstance.id, "move")}
-      >
-        <div className="flex space-x-2">
-          <div
-            className="w-3 h-3 rounded-full bg-red-500 cursor-pointer"
-            onClick={onClose}
-          ></div>
-          <div
-            className="w-3 h-3 rounded-full bg-yellow-500 cursor-pointer"
-            onClick={onMinimize}
-          ></div>
-          <div
-            className="w-3 h-3 rounded-full bg-green-500 cursor-pointer"
-            onClick={onMaximize}
-          ></div>
-        </div>
+      <div className="bg-gray-100 dark:bg-gray-800 px-4 py-2 flex items-center border-b border-gray-200 dark:border-gray-700">
         <div className="flex-grow flex justify-center space-x-4">
           <button
-            className={`text-gray-600 hover:text-gray-800 transition-colors ${
+            className={`text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-200 transition-colors ${
               currentView === "Library" ? "font-semibold" : ""
             }`}
             onClick={() => changeView("Library")}
@@ -140,7 +106,7 @@ const PhotosApp: React.FC<PhotosAppProps> = ({
             Library
           </button>
           <button
-            className={`text-gray-600 hover:text-gray-800 transition-colors ${
+            className={`text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-200 transition-colors ${
               currentView === "For You" ? "font-semibold" : ""
             }`}
             onClick={() => changeView("For You")}
@@ -162,7 +128,7 @@ const PhotosApp: React.FC<PhotosAppProps> = ({
             For You
           </button>
           <button
-            className={`text-gray-600 hover:text-gray-800 transition-colors ${
+            className={`text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-200 transition-colors ${
               currentView === "Memories" ? "font-semibold" : ""
             }`}
             onClick={() => changeView("Memories")}
@@ -186,7 +152,7 @@ const PhotosApp: React.FC<PhotosAppProps> = ({
         </div>
         <button
           onClick={toggleSidebar}
-          className="text-gray-600 hover:text-gray-800 transition-colors"
+          className="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-200 transition-colors"
         >
           <svg
             className="w-5 h-5"
@@ -205,7 +171,7 @@ const PhotosApp: React.FC<PhotosAppProps> = ({
         </button>
         <button
           onClick={toggleGridList}
-          className="text-gray-600 hover:text-gray-800 transition-colors ml-2"
+          className="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-200 transition-colors ml-2"
         >
           {isGridView ? (
             <svg
@@ -239,39 +205,23 @@ const PhotosApp: React.FC<PhotosAppProps> = ({
             </svg>
           )}
         </button>
-        <button
-          onClick={openCloud}
-          className="text-gray-600 hover:text-gray-800 transition-colors ml-2 flex items-center"
-        >
-          Pexels{" "}
-          <svg
-            className="w-5 h-5 ml-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
-            ></path>
-          </svg>
-        </button>
       </div>
 
       {/* Photos Body */}
       <div className="flex-grow flex overflow-hidden">
         {sidebarOpen && (
-          <div className="w-48 bg-gray-50 border-r border-gray-200 p-4">
-            <h3 className="font-semibold text-gray-700 mb-2">Albums</h3>
+          <div className="w-48 bg-gray-50 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 p-4">
+            <h3 className="font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              Albums
+            </h3>
             <ul className="space-y-2">
               {albums.map((album) => (
                 <li
                   key={album}
-                  className={`text-gray-600 hover:text-gray-800 cursor-pointer p-2 rounded transition-colors duration-200 ${
-                    currentAlbum === album ? "bg-blue-100 text-blue-600" : ""
+                  className={`text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-200 cursor-pointer p-2 rounded transition-colors duration-200 ${
+                    currentAlbum === album
+                      ? "bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400"
+                      : ""
                   }`}
                   onClick={() => changeAlbum(album)}
                 >
@@ -296,13 +246,26 @@ const PhotosApp: React.FC<PhotosAppProps> = ({
             </>
           )}
           {currentView === "For You" && (
-            <div className="text-center text-gray-600">
-              <h2 className="text-2xl font-semibold mb-4">For You</h2>
-              <p>Personalized photo suggestions will appear here.</p>
+            <div>
+              <h2 className="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-300 px-6 pt-6">
+                For You
+              </h2>
+              {filteredPhotos.length > 0 ? (
+                <GalleryGrid
+                  photos={filteredPhotos}
+                  isGridView={isGridView}
+                  onPhotoClick={selectPhoto}
+                  onToggleFavorite={toggleFavorite}
+                />
+              ) : (
+                <div className="text-center text-gray-600 dark:text-gray-300 py-12">
+                  <p>Mark photos as favorites to see them here!</p>
+                </div>
+              )}
             </div>
           )}
           {currentView === "Memories" && (
-            <div className="text-center text-gray-600">
+            <div className="text-center text-gray-600 dark:text-gray-300">
               <h2 className="text-2xl font-semibold mb-4">Memories</h2>
               <p>Your photo memories will be displayed here.</p>
             </div>

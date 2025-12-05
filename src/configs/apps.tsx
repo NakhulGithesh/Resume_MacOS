@@ -1,4 +1,6 @@
 import { appBarHeight } from "~/utils";
+import PhotosApp from "~/components/PhotosApp/PhotosApp";
+import photosIcon from "~/components/PhotosApp/photosIcon.avif";
 import type { AppsData } from "~/types";
 
 const apps: AppsData[] = [
@@ -50,6 +52,15 @@ const apps: AppsData[] = [
     y: -30,
     img: "img/icons/vscode.png",
     content: <VSCode />
+  },
+  {
+    id: "photos",
+    title: "Photos",
+    desktop: true,
+    width: 900,
+    height: 600,
+    img: photosIcon,
+    content: <PhotosApp />
   },
   {
     id: "facetime",

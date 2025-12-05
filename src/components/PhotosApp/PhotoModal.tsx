@@ -1,4 +1,5 @@
 import React from "react";
+import { useStore } from "~/stores";
 import { Photo } from "./galleryData";
 
 interface PhotoModalProps {
@@ -9,9 +10,13 @@ interface PhotoModalProps {
 }
 
 const PhotoModal: React.FC<PhotoModalProps> = ({ photo, onClose }) => {
+  const dark = useStore((state) => state.dark);
+
   return (
     <div
-      className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+      className={`fixed inset-0 bg-black flex items-center justify-center z-50 ${
+        dark ? "bg-opacity-85" : "bg-opacity-75"
+      }`}
       onClick={onClose}
     >
       <img

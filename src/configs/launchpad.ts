@@ -48,6 +48,12 @@ const launchpadApps: LaunchpadData[] = [
     title: "Terminal",
     img: "img/icons/terminal.png",
     link: "https://en.wikipedia.org/wiki/Terminal_(macOS)"
+  },
+  {
+    id: "photos",
+    title: "Photos",
+    img: "src/components/PhotosApp/photosIcon.avif",
+    desktop: true
   }
 ];
 

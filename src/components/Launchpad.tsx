@@ -3,11 +3,12 @@ import { wallpapers, launchpadApps } from "~/configs";
 interface LaunchpadProps {
   show: boolean;
   toggleLaunchpad: (target: boolean) => void;
+  openApp?: (id: string) => void;
 }
 
 const placeholderText = "Search";
 
-export default function Launchpad({ show, toggleLaunchpad }: LaunchpadProps) {
+export default function Launchpad({ show, toggleLaunchpad, openApp }: LaunchpadProps) {
   const dark = useStore((state) => state.dark);
 
   const [searchText, setSearchText] = useState("");
@@ -64,15 +65,28 @@ export default function Launchpad({ show, toggleLaunchpad }: LaunchpadProps) {
         >
           {search().map((app) => (
             <div key={`launchpad-${app.id}`} h="32 sm:36" flex="~ col">
-              <a
-                className="w-14 sm:w-20 mx-auto"
-                href={app.link}
-                target="_blank"
-                rel="noreferrer"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <img src={app.img} alt={app.title} title={app.title} />
-              </a>
+              {app.desktop ? (
+                <div
+                  className="w-14 sm:w-20 mx-auto cursor-pointer"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleLaunchpad(false);
+                    openApp?.(app.id);
+                  }}
+                >
+                  <img src={app.img} alt={app.title} title={app.title} />
+                </div>
+              ) : (
+                <a
+                  className="w-14 sm:w-20 mx-auto"
+                  href={app.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <img src={app.img} alt={app.title} title={app.title} />
+                </a>
+              )}
               <span m="t-2 x-auto" text="white xs sm:sm">
                 {app.title}
               </span>

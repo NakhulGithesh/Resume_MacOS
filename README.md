@@ -5,8 +5,9 @@ A macOS-style portfolio website built with React, TypeScript, and Tailwind CSS, 
 ## 🌟 Features
 
 - **macOS Desktop Interface**: Authentic macOS look and feel with responsive design
-- **Interactive Apps**: Functional apps like Safari, VSCode, Terminal, Bear, and more
+- **Interactive Apps**: Functional apps like Safari, VSCode, Terminal, Bear, Photos, and more
 - **Personal Projects**: Showcase your projects in the Bear app
+- **Achievement Gallery**: Display your certificates and accomplishments in the Photos app
 - **GitHub Integration**: Display stats, contributions, and top languages
 - **Customizable**: Easily modify content, links, and appearance
 - **Responsive**: Works on desktop and mobile devices
@@ -48,7 +49,9 @@ A macOS-style portfolio website built with React, TypeScript, and Tailwind CSS, 
 
 ```
 src/
-├── components/          # Reusable UI components
+├── components/
+│   ├── PhotosApp/      # Photos app components
+│   └── ...             # Other UI components
 ├── configs/            # App configurations and data
 ├── pages/              # Main page components
 ├── stores/             # State management
@@ -58,6 +61,7 @@ src/
 
 public/
 ├── img/                # Images and icons
+├── photos/             # Achievement gallery images
 ├── markdown/           # Content for apps
 └── music/              # Background music
 ```
@@ -66,6 +70,9 @@ public/
 
 ### Adding Projects
 Edit `src/configs/bear.tsx` to add your projects with descriptions and links.
+
+### Photos App Gallery
+Add your achievement images to `public/photos/` and update `src/components/PhotosApp/galleryData.ts` with the filenames. The app automatically categorizes and displays all images in the "All Achievements" album.
 
 ### Updating Social Links
 Modify `src/configs/websites.ts` and `src/configs/launchpad.ts` for social media and website links.
@@ -77,6 +84,7 @@ Update markdown files in `public/markdown/` for app content.
 - Change avatar in `public/img/ui/avatar.jpg`
 - Update user info in `src/configs/user.ts`
 - Modify wallpapers in `public/img/ui/`
+- Add achievement photos to `public/photos/`
 
 ## 📱 Mobile Support
 
