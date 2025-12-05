@@ -2,8 +2,6 @@
 
 A macOS-style portfolio website built with React, TypeScript, and Tailwind CSS, featuring a desktop interface with customizable apps and personal GitHub stats.
 
-![Portfolio Preview](public/screenshots/light.png)
-
 ## 🌟 Features
 
 - **macOS Desktop Interface**: Authentic macOS look and feel with responsive design
@@ -87,10 +85,6 @@ The portfolio is responsive and works on mobile devices, though some desktop-spe
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ## 👨‍💻 Author
 
