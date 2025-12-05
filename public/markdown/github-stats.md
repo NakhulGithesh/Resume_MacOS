@@ -1,4 +1,11 @@
-💫 About Me: 🔭 I’m currently working on : AgenticMeet-AI<br>🌱 I’m currently learning: PHP, cpp, Rust, ruby<br>💬 Ask me about: python, typescript, html, css, javascript, java, R-script, MySQL<br>📫 How to reach me: nakhulgitheshwork@gmail.com<br>👨‍💻 All of my projects are available at: https://github.com/NakhulGithesh<br>⚡ Fun fact: I think im bad at coding
+🧩 About Me
+
+🛠️ I’m currently working on: AgenticMeet-AI               
+🌱 I’m currently learning: PHP, C++, Rust, Ruby   
+💬 Ask me about: Python, TypeScript, HTML, CSS, JavaScript, Java, R-script, MySQL  
+📫 How to reach me: nakhulgitheshwork@gmail.com  
+👨‍💻 All of my projects: github.com/NakhulGithesh  
+⚡ Fun fact: I think I'm bad at coding (but you're probably better than you think!)
 
 
 ## 🌐 Socials:
