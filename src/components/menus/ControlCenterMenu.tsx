@@ -1,6 +1,5 @@
 import React from "react";
-import Slider from "react-rangeslider";
-import "react-rangeslider/lib/index.css";
+import * as Slider from "@radix-ui/react-slider";
 import { music } from "~/configs";
 
 interface SliderProps {
@@ -14,14 +13,18 @@ const SliderComponent = ({ icon, value, setValue }: SliderProps) => (
     <div className="size-7 flex-center bg-c-100" border="t l b c-300 rounded-l-full">
       <span className={icon} text="xs c-500" />
     </div>
-    <Slider
+    <Slider.Root
+      className="w-full h-7 relative flex items-center select-none touch-none"
       min={1}
       max={100}
-      value={value}
-      tooltip={false}
-      orientation="horizontal"
-      onChange={(v: number) => setValue(v)}
-    />
+      value={[value]}
+      onValueChange={(values) => setValue(values[0])}
+    >
+      <Slider.Track className="bg-c-300 relative grow rounded-r-full h-full">
+        <Slider.Range className="absolute bg-c-100 h-full rounded-none" />
+      </Slider.Track>
+      <Slider.Thumb className="block size-7 bg-white border border-c-300 outline-none" />
+    </Slider.Root>
   </div>
 );
 

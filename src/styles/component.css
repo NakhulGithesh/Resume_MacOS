@@ -66,23 +66,6 @@
 
 /* --------- slider --------- */
 
-.slider .rangeslider {
-  @apply bg-c-300 w-full h-7 shadow-none m-0 rounded-r-full border-t border-r border-b border-transparent;
-}
-
-.slider .rangeslider .rangeslider__fill {
-  @apply bg-c-100 shadow-none rounded-none;
-}
-
-.slider .rangeslider .rangeslider__handle {
-  @apply border border-c-300 outline-none size-7 text-white bg-white;
-  box-shadow: -3px 0px 8px 0px rgba(17, 17, 17, 0.15);
-}
-
-.slider .rangeslider .rangeslider__handle::after {
-  @apply hidden;
-}
-
 
 /*
   Credits: W3 Schools: https://www.w3schools.com/howto/howto_css_switch.asp
