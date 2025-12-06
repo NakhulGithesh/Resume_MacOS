@@ -6,7 +6,17 @@ export interface Photo {
 }
 
 // Achievement screenshots from public/photos/ directory
+// Last 9 images moved to the top (most recent timestamps)
 const achievementPhotos = [
+  "Screenshot 2025-12-05 225424.png",
+  "Screenshot 2025-12-05 225416.png",
+  "Screenshot 2025-12-05 225315.png",
+  "Screenshot 2025-12-05 225253.png",
+  "Screenshot 2025-12-05 225240.png",
+  "Screenshot 2025-12-05 225147.png",
+  "Screenshot 2025-12-05 225134.png",
+  "Screenshot 2025-12-05 225120.png",
+  "Screenshot 2025-12-05 225105.png",
   "Screenshot 2025-12-05 224559.png",
   "Screenshot 2025-12-05 224626.png",
   "Screenshot 2025-12-05 224653.png",
@@ -24,16 +34,7 @@ const achievementPhotos = [
   "Screenshot 2025-12-05 224853.png",
   "Screenshot 2025-12-05 224958.png",
   "Screenshot 2025-12-05 225007.png",
-  "Screenshot 2025-12-05 225023.png",
-  "Screenshot 2025-12-05 225105.png",
-  "Screenshot 2025-12-05 225120.png",
-  "Screenshot 2025-12-05 225134.png",
-  "Screenshot 2025-12-05 225147.png",
-  "Screenshot 2025-12-05 225240.png",
-  "Screenshot 2025-12-05 225253.png",
-  "Screenshot 2025-12-05 225315.png",
-  "Screenshot 2025-12-05 225416.png",
-  "Screenshot 2025-12-05 225424.png"
+  "Screenshot 2025-12-05 225023.png"
 ];
 
 export const galleryData: Photo[] = achievementPhotos.map((filename) => ({
