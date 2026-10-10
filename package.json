@@ -6,7 +6,7 @@
     "build": "vite build",
     "dev": "vite --host",
     "lint": "eslint .",
-    "prepare": "husky",
+    "prepare": "husky || true",
     "serve": "vite preview --host"
   },
   "lint-staged": {
