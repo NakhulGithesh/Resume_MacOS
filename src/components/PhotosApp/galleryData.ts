@@ -38,7 +38,7 @@ const achievementPhotos = [
 ];
 
 export const galleryData: Photo[] = achievementPhotos.map((filename) => ({
-  path: `/photos/${filename}`,
+  path: `/photos/${encodeURIComponent(filename)}`,
   name: filename,
   album: "All Achievements",
   isFavorite: false

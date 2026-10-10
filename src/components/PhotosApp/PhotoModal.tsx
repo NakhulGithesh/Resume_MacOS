@@ -14,8 +14,8 @@ const PhotoModal: React.FC<PhotoModalProps> = ({ photo, onClose }) => {
 
   return (
     <div
-      className={`fixed inset-0 bg-black flex items-center justify-center z-50 ${
-        dark ? "bg-opacity-85" : "bg-opacity-75"
+      className={`fixed inset-0 flex items-center justify-center z-50 ${
+        dark ? "bg-black/85" : "bg-black/75"
       }`}
       onClick={onClose}
     >

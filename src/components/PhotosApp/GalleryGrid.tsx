@@ -35,7 +35,7 @@ const GalleryGrid: React.FC<GalleryGridProps> = ({
               isGridView ? "w-full h-40 object-cover" : "w-full h-20 object-cover"
             }
           />
-          <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity duration-300"></div>
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 pointer-events-none"></div>
           <button
             className="absolute bottom-2 right-2 text-white hover:text-red-500 transition-colors duration-200"
             onClick={(e) => {
@@ -59,7 +59,7 @@ const GalleryGrid: React.FC<GalleryGridProps> = ({
             </svg>
           </button>
           {!isGridView && (
-            <div className="absolute inset-0 flex items-center p-2 bg-black bg-opacity-50 text-white">
+            <div className="absolute inset-0 flex items-center p-2 bg-black/50 text-white">
               <span className="text-sm">{photo.name}</span>
             </div>
           )}
